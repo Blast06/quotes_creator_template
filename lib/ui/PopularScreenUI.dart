@@ -4,8 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thoughts_creator/Helper/PreferenceHelper.dart';
+import 'package:thoughts_creator/Model/QuotesImg.dart';
+import 'package:thoughts_creator/Services/data/Images.dart';
 import 'package:thoughts_creator/controller/PopularImageController.dart';
 import 'package:thoughts_creator/controller/SavedCollectionController.dart';
 import 'package:thoughts_creator/utils/AppColors.dart';
@@ -20,12 +23,13 @@ class PopularScreenUI extends StatefulWidget {
 }
 
 class _PopularScreenUIState extends State<PopularScreenUI> {
+  Logger logger = Logger();
   PreferenceHelper preferenceHelper;
   SharedPreferences prefs;
   final PopularImageController popularImageController =
       Get.put(PopularImageController());
   SavedCollectionController savedCollectionController =
-  Get.put(SavedCollectionController());
+      Get.put(SavedCollectionController());
 
   @override
   void initState() {
@@ -34,23 +38,25 @@ class _PopularScreenUIState extends State<PopularScreenUI> {
     savedCollectionController.selectedList.clear();
     checkInternetConnection();
   }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
       init: PopularImageController(),
       builder: (PopularImageController controller) {
-
-        print("popular===="+controller.list.length.toString());
+        print("popular====" + controller.list.length.toString());
         return Scaffold(
           backgroundColor: AppColors.backgroundColor,
-
           body: new Column(
             children: [
               Expanded(
                   flex: 1,
                   child: Obx(
                     () => controller.isLoading.value
-                        ? Center(child: new CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(AppColors.primaryColor)))
+                        ? Center(
+                            child: new CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                    AppColors.primaryColor)))
                         : Container(
                             child: controller.list != null &&
                                     controller.list.length > 0
@@ -87,14 +93,13 @@ class _PopularScreenUIState extends State<PopularScreenUI> {
       },
     );
   }
+
   checkInternetConnection() async {
     var notConnection = await (Connectivity().checkConnectivity());
     if (notConnection == ConnectivityResult.none) {
       _showDialog();
     } else {
-    popularImageController.
-    apiCallPopularTamplate();
-
+      popularImageController.apiCallPopularTamplate();
     }
   }
 
@@ -119,31 +124,33 @@ class _PopularScreenUIState extends State<PopularScreenUI> {
                   child: Hero(
                       tag: index, // staticData[index].images,
                       child: FancyShimmerImage(
-                        imageUrl: controller.imgNetworkPath +
-                            "/" +
-                            controller.list[index].img,
+                        imageUrl: controller.list[index].url,
                         shimmerBaseColor: AppColors.hintColor,
                         shimmerHighlightColor: AppColors.hintColor,
                         shimmerBackColor: AppColors.hintColor,
                         errorWidget: null,
                       )),
                   onTap: () {
+                    logger.i("HERE GOES THE LINK FULL PATH IMAGE✔✔👀");
+                    logger.v(
+                        "${controller.imgNetworkPath}/${controller.list[index].url}");
                     //
-                    List<Src> tmpFilesArray = [];
+                    List<Images> tmpFilesArray = [];
                     for (int i = 0; i < controller.list.length; i++) {
                       tmpFilesArray.add(controller.list[i]);
                     }
 
-
-                    Get.to(() => SliderPreviewImageUI([],tmpFilesArray,index,true,
-                      imgPath: controller.imgNetworkPath,));
-
+                    Get.to(() => SliderPreviewImageUI(
+                          [],
+                          tmpFilesArray,
+                          index,
+                          true,
+                        ));
                   })),
         ),
       ),
     );
   }
-
 
   _showDialog() {
     return showCupertinoDialog(
