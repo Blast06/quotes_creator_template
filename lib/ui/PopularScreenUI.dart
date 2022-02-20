@@ -140,12 +140,14 @@ class _PopularScreenUIState extends State<PopularScreenUI> {
                       tmpFilesArray.add(controller.list[i]);
                     }
 
-                    Get.to(() => SliderPreviewImageUI(
-                          [],
-                          tmpFilesArray,
-                          index,
-                          true,
-                        ));
+                    Get.to(
+                      () => SliderPreviewImageUI(
+                        [],
+                        tmpFilesArray,
+                        index,
+                        true,
+                      ),
+                    );
                   })),
         ),
       ),

@@ -16,22 +16,21 @@ class SplashScreenUI extends StatefulWidget {
 }
 
 class _SplashScreenUIState extends State<SplashScreenUI> {
-
   PreferenceHelper preferenceHelper;
   SharedPreferences prefs;
-  final BackgroundImgController bgImgController = Get.put(BackgroundImgController());
-  final CommonEditorController commonController = Get.put(CommonEditorController());
-
+  final BackgroundImgController bgImgController =
+      Get.put(BackgroundImgController());
+  final CommonEditorController commonController =
+      Get.put(CommonEditorController());
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     checkInternetConnection();
-
-
   }
-  checkInternetConnection()async {
+
+  checkInternetConnection() async {
     var notConnection = await (Connectivity().checkConnectivity());
     if (notConnection == ConnectivityResult.none) {
       _showDialog();
@@ -40,6 +39,8 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
     }
   }
 
+  //TODO: LOAD THE ADMOB APP OPENED AD
+
   Future<void> getSharedPreferenceObject() async {
     SharedPreferences.getInstance().then((SharedPreferences sp) {
       prefs = sp;
@@ -47,25 +48,18 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
       // checkInternetConnection();
 
       bgImgController.apiLogin();
-      Future.delayed(new Duration(seconds:4),() async {
-        print("new user======"+preferenceHelper.getIsUserNew().toString());
+      Future.delayed(new Duration(seconds: 4), () async {
+        print("new user======" + preferenceHelper.getIsUserNew().toString());
         if (preferenceHelper.getIsUserNew()) {
-
           Get.off(() => IntroScreenUI());
         } else {
-
-          if(commonController.isNoDataApi){
-            Get.off(() => MainScreenUI(false,true));
-          }else{
-            Get.off(() => MainScreenUI(false,false));
+          if (commonController.isNoDataApi) {
+            Get.off(() => MainScreenUI(false, true));
+          } else {
+            Get.off(() => MainScreenUI(false, false));
           }
-
-
-
         }
-
       });
-
     });
   }
 
@@ -93,26 +87,25 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(AppString.imagesAssetPath+"ic_splash_screen.png"),
-              fit: BoxFit.cover
-            )
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                  AppString.imagesAssetPath + "ic_splash_screen.png"),
+              fit: BoxFit.cover)),
+      child: Center(
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            AppString.imagesAssetPath + 'ic_quotes_logo.png',
+            width: 220.0,
+            height: 220.0,
           ),
-          child: Center(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(AppString.imagesAssetPath+'ic_quotes_logo.png',
-                width: 220.0,height:220.0,),
-
-            ],
-          )),
-        )
-    );
+        ],
+      )),
+    ));
   }
-
 }

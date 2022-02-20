@@ -7,54 +7,41 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:thoughts_creator/ui/SplashScreenUI.dart';
 import 'utils/AppString.dart';
-
-
+import 'utils/Translations.dart';
 
 void main() {
   runApp(MyApp());
   FirebaseAdMob.instance.initialize(appId: getAppId());
 }
 
-int counter=0;
-const int FinalAdCounter=3;
-
-
+int counter = 0;
+const int FinalAdCounter = 3;
 
 /*-------------------Ads Status Change-------------------------------------*/
 // here , if you want  GoogleAds show in Food Delivery UI Application, you can easily change "isAdShow" flag value true.
 
-bool isAdShow=false;
-
-
-
+bool isAdShow = false;
 
 String getAppId() {
   if (Platform.isIOS) {
     return AppString.googleAdsAppIDIOS;
   } else if (Platform.isAndroid) {
     //return AppString.googleAdsAppIDAndroid;
-   return  'ca-app-pub-3940256099942544~3347511713';
-
-
+    return 'ca-app-pub-3940256099942544~3347511713';
   }
   return null;
 }
-
-
 
 //Banner placementID
 String getBannerAdUnitId() {
   if (Platform.isIOS) {
     return AppString.bannerAdsIOS;
   } else if (Platform.isAndroid) {
-   // return AppString.bannerAdsAndroid;
-      return 'ca-app-pub-3940256099942544/2934735716';
-
+    // return AppString.bannerAdsAndroid;
+    return 'ca-app-pub-3940256099942544/2934735716';
   }
   return null;
 }
-
-
 
 String getNativeAdUnitId() {
   if (Platform.isIOS) {
@@ -62,7 +49,6 @@ String getNativeAdUnitId() {
   } else if (Platform.isAndroid) {
     // return AppString.nativeAdsAppIDAndroid;
     return "ca-app-pub-3940256099942544/2247696110";
-
   }
   return null;
 }
@@ -91,21 +77,15 @@ void handleEvent(AdmobAdEvent event, Map<String, dynamic> args, String adType) {
   }
 }
 
-
-
-
-
 //Interstitial placementID
 String getInterstitialAdUnitId() {
   if (Platform.isIOS) {
     return AppString.interstitialAdsIOS;
   } else if (Platform.isAndroid) {
-   return AppString.interstitialAdsAndroid;
-
+    return AppString.interstitialAdsAndroid;
   }
   return null;
 }
-
 
 // return 'ca-app-pub-3940256099942544/4411468910';
 MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
@@ -116,9 +96,6 @@ MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
   testDevices: <String>[], // Android emulators are considered test devices
 );
 
-
-
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
 
@@ -127,17 +104,17 @@ class MyApp extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return GetMaterialApp(
-      title: 'Thoughts Of The Day',debugShowCheckedModeBanner: false,
+      title: 'app_name'.tr,
+      debugShowCheckedModeBanner: false,
+      translations: MyTransalations(),
+      locale: Get.deviceLocale,
       theme: ThemeData(
         textTheme: GoogleFonts.muliTextTheme(textTheme).copyWith(
-          bodyText2: GoogleFonts.muli(textStyle: textTheme.bodyText2)
-        ),
+            bodyText2: GoogleFonts.muli(textStyle: textTheme.bodyText2)),
         primarySwatch: Colors.blue,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashScreenUI(),
     );
   }
 }
-
