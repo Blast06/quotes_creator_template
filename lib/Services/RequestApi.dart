@@ -11,9 +11,11 @@ class RequestApi {
   Future<http.Response> post() {
     Logger logger = Logger();
     logger.v("URL in post: $url");
+    Uri postUrl = Uri.parse(ApiUtils.urlBase + url);
+
     return http
         .post(
-          ApiUtils.urlBase + url,
+          postUrl,
           body: body,
         )
         .timeout(Duration(minutes: 2));
@@ -22,9 +24,11 @@ class RequestApi {
   Future<http.Response> get() {
     Logger logger = Logger();
     logger.v("URL in GET: $url");
+    Uri response = Uri.parse(ApiUtils.urlBase + url);
+
     return http
         .get(
-          ApiUtils.urlBase + url,
+          response,
         )
         .timeout(Duration(minutes: 2));
   }
@@ -32,10 +36,7 @@ class RequestApi {
   Future<http.Response> popularPost() {
     Logger logger = Logger();
     logger.v("URL in popularpost: ${ApiUtils.urlBase}$url");
-    return http
-        .get(
-          ApiUtils.urlBase + url,
-        )
-        .timeout(Duration(minutes: 2));
+    Uri urlPopularPost = Uri.parse(ApiUtils.urlBase + url);
+    return http.get(urlPopularPost).timeout(Duration(minutes: 2));
   }
 }

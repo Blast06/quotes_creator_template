@@ -237,9 +237,9 @@ class _SliderPreviewImageUIState extends State<SliderPreviewImageUI> {
                                   imagePath: widget._files[widget.index].path);
                             } else {
                               var filename = 'temp.png';
-
-                              final response = await http.get(
+                              Uri responseUrl = Uri.parse(
                                   widget._popularImgList[widget.index].url);
+                              final response = await http.get(responseUrl);
 
                               final documentDirectory =
                                   await getApplicationDocumentsDirectory();
