@@ -5,13 +5,33 @@ import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:native_admob_flutter/native_admob_flutter.dart';
 import 'package:thoughts_creator/ui/SplashScreenUI.dart';
+import 'controller/AdmobController.dart';
 import 'utils/AppString.dart';
+import 'utils/Myadmob.dart';
 import 'utils/Translations.dart';
 
-void main() {
+void main() async {
+  // FirebaseAdMob.instance.initialize(appId: getAppId());
+
+  // TODO: ENABLE CRASHLYTICS
+  // to enable crashlytics
+  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+
+  await MobileAds.initialize(
+    bannerAdUnitId: MyAdmob.getBannerAdId(),
+    interstitialAdUnitId: MyAdmob.getInterstitialAdId(),
+    appOpenAdUnitId: MyAdmob.getOpenAdId(),
+  );
+
+  // for apple to request/allow ads tracking
+  await MobileAds.requestTrackingAuthorization();
+
+  MobileAds.setTestDeviceIds(['34FEAA5868007783EAE019607349D798']);
+  Get.put(AdmobController());
+
   runApp(MyApp());
-  FirebaseAdMob.instance.initialize(appId: getAppId());
 }
 
 int counter = 0;
