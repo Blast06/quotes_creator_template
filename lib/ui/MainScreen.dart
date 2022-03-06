@@ -43,7 +43,7 @@ class _MainScreenUIState extends State<MainScreenUI> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    AppCommonFunc.adInterstitialAdshow();
+    // AppCommonFunc.adInterstitialAdshow();
 
     pageController = PageController(
       initialPage: widget.isEditor ? 2 : commonController.selectedPageViewIndex,

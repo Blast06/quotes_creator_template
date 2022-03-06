@@ -36,7 +36,7 @@ class _DownloadImageScreenUIState extends State<DownloadImageScreenUI> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    AppCommonFunc.adInterstitialAdshow();
+    // AppCommonFunc.adInterstitialAdshow();
     print("byteImage" + widget.byteImage.toString());
   }
 

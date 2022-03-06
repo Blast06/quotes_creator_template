@@ -39,7 +39,7 @@ class _SliderPreviewImageUIState extends State<SliderPreviewImageUI> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    AppCommonFunc.adInterstitialAdshow();
+    // AppCommonFunc.adInterstitialAdshow();
   }
 
   @override
@@ -302,7 +302,7 @@ class _DetailScreenState extends State<DetailScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    AppCommonFunc.adInterstitialAdshow();
+    // AppCommonFunc.adInterstitialAdshow();
   }
 
   @override

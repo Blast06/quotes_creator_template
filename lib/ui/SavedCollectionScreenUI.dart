@@ -30,7 +30,7 @@ class _SavedCollectionScreenUIState extends State<SavedCollectionScreenUI> {
     // TODO: implement initState
     super.initState();
     requestPermission(Permission.storage);
-    AppCommonFunc.adInterstitialAdshow();
+    // AppCommonFunc.adInterstitialAdshow();
     // getDataFromDir();
   }
 

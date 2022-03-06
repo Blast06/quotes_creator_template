@@ -1,4 +1,4 @@
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,12 +10,16 @@ import 'package:thoughts_creator/ui/IntroScreenUI.dart';
 import 'package:thoughts_creator/ui/MainScreen.dart';
 import 'package:thoughts_creator/utils/AppString.dart';
 
+import '../controller/SplashController.dart';
+
 class SplashScreenUI extends StatefulWidget {
   @override
   _SplashScreenUIState createState() => _SplashScreenUIState();
 }
 
 class _SplashScreenUIState extends State<SplashScreenUI> {
+  final sp = Get.put(SplashController());
+
   PreferenceHelper preferenceHelper;
   SharedPreferences prefs;
   final BackgroundImgController bgImgController =
@@ -30,6 +34,7 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
     checkInternetConnection();
   }
 
+//TODO: MIGRATE THIS TO THE SPLASHCTRL
   checkInternetConnection() async {
     var notConnection = await (Connectivity().checkConnectivity());
     if (notConnection == ConnectivityResult.none) {

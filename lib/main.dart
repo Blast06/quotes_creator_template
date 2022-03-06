@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:admob_flutter/admob_flutter.dart';
-import 'package:firebase_admob/firebase_admob.dart';
+// import 'package:admob_flutter/admob_flutter.dart';
+// import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,27 +75,27 @@ String getNativeAdUnitId() {
 
 bool isAdLoad = false;
 
-void handleEvent(AdmobAdEvent event, Map<String, dynamic> args, String adType) {
-  switch (event) {
-    case AdmobAdEvent.loaded:
-      isAdLoad = true;
-      print('New Admob $adType Ad loaded!');
-      break;
-    case AdmobAdEvent.opened:
-      isAdLoad = true;
-      print('Admob $adType Ad opened!');
-      break;
-    case AdmobAdEvent.closed:
-      isAdLoad = false;
-      print('Admob $adType Ad closed!');
-      break;
-    case AdmobAdEvent.failedToLoad:
-      isAdLoad = false;
-      //print('Admob $adType failed to load. :(');
-      break;
-    default:
-  }
-}
+// void handleEvent(AdmobAdEvent event, Map<String, dynamic> args, String adType) {
+//   switch (event) {
+//     case AdmobAdEvent.loaded:
+//       isAdLoad = true;
+//       print('New Admob $adType Ad loaded!');
+//       break;
+//     case AdmobAdEvent.opened:
+//       isAdLoad = true;
+//       print('Admob $adType Ad opened!');
+//       break;
+//     case AdmobAdEvent.closed:
+//       isAdLoad = false;
+//       print('Admob $adType Ad closed!');
+//       break;
+//     case AdmobAdEvent.failedToLoad:
+//       isAdLoad = false;
+//       //print('Admob $adType failed to load. :(');
+//       break;
+//     default:
+//   }
+// }
 
 //Interstitial placementID
 String getInterstitialAdUnitId() {
@@ -108,13 +108,13 @@ String getInterstitialAdUnitId() {
 }
 
 // return 'ca-app-pub-3940256099942544/4411468910';
-MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
-  keywords: <String>['flutterio', 'beautiful apps'],
-  contentUrl: 'https://flutter.io',
+// MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+//   keywords: <String>['flutterio', 'beautiful apps'],
+//   contentUrl: 'https://flutter.io',
 
-  childDirected: false,
-  testDevices: <String>[], // Android emulators are considered test devices
-);
+//   childDirected: false,
+//   testDevices: <String>[], // Android emulators are considered test devices
+// );
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

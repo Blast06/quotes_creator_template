@@ -80,7 +80,7 @@ class _QuotesCategoryScreenUIState extends State<QuotesCategoryScreenUI> {
     super.initState();
 
     loadData(0,quotesEditController);
-    AppCommonFunc.adInterstitialAdshow();
+    // AppCommonFunc.adInterstitialAdshow();
   }
 
  void loadData(int type,QuotesEditorController quotesEditorController) async {
