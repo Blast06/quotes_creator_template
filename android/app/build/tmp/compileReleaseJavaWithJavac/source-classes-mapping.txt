@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/rain/thoughtoftheday/BuildConfig.java
+ com.rain.thoughtoftheday.BuildConfig
