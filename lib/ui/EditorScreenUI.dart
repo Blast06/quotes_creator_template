@@ -4,7 +4,7 @@ import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
+// import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -37,6 +37,7 @@ import 'package:thoughts_creator/utils/AppColors.dart';
 import 'package:thoughts_creator/utils/AppCommonFunc.dart';
 
 import 'package:thoughts_creator/utils/AppString.dart';
+import 'package:thoughts_creator/utils/Connectivity.dart';
 import 'package:thoughts_creator/utils/screen_util.dart';
 
 import 'DownloadImageScreenUI.dart';
@@ -52,7 +53,7 @@ class _EditorScreenUIState extends State<EditorScreenUI> {
   final globalKey = new GlobalKey();
   final globalRepaintKey = new GlobalKey();
   final ValueNotifier<Matrix4> notifier = ValueNotifier(Matrix4.identity());
-
+  final connectivityCtrl = Get.find<ConnectivityController>();
   // double _scale = 1.0;
   //double _previousScale = 1.0;
   final ratioController1 = Get.put(RatioController());
@@ -1315,8 +1316,9 @@ class _EditorScreenUIState extends State<EditorScreenUI> {
   }
 
   checkInternetConnection() async {
-    var notConnection = await (Connectivity().checkConnectivity());
-    if (notConnection == ConnectivityResult.none) {
+    var notConnection = await connectivityCtrl.checkInternetConnection();
+    // var notConnection = await (Connectivity().checkConnectivity());
+    if (!notConnection) {
       _showDialog();
     }
   }

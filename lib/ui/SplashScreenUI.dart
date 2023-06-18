@@ -1,4 +1,4 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
+// import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +9,7 @@ import 'package:thoughts_creator/controller/CommonEditorController.dart';
 import 'package:thoughts_creator/ui/IntroScreenUI.dart';
 import 'package:thoughts_creator/ui/MainScreen.dart';
 import 'package:thoughts_creator/utils/AppString.dart';
+import 'package:thoughts_creator/utils/Connectivity.dart';
 
 import '../controller/SplashController.dart';
 
@@ -27,6 +28,8 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
   final CommonEditorController commonController =
       Get.put(CommonEditorController());
 
+  final connectivityCtrl = Get.find<ConnectivityController>();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -36,8 +39,9 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
 
 //TODO: MIGRATE THIS TO THE SPLASHCTRL
   checkInternetConnection() async {
-    var notConnection = await (Connectivity().checkConnectivity());
-    if (notConnection == ConnectivityResult.none) {
+    var notConnection = await connectivityCtrl.checkInternetConnection();
+    // var notConnection = await (Connectivity().checkConnectivity());
+    if (!notConnection) {
       _showDialog();
     } else {
       getSharedPreferenceObject();

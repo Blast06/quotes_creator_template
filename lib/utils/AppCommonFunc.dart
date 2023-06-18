@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:native_admob_flutter/native_admob_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store_redirect/store_redirect.dart';
 import 'package:thoughts_creator/Helper/PreferenceHelper.dart';
@@ -26,29 +25,29 @@ class AppCommonFunc {
   static PreferenceHelper preferenceHelper;
   static SharedPreferences prefs;
 
-  final bannerAd = BannerAd(
-    // controller: bannerController,
-    size: BannerSize.ADAPTIVE,
-    options: BannerAdOptions(
-      reloadWhenSizeChanges: false,
-      reloadWhenUnitIdChanges: false,
-    ),
-  );
+  // final bannerAd = BannerAd(
+  //   // controller: bannerController,
+  //   size: BannerSize.ADAPTIVE,
+  //   options: BannerAdOptions(
+  //     reloadWhenSizeChanges: false,
+  //     reloadWhenUnitIdChanges: false,
+  //   ),
+  // );
 
-  static Widget admobBannerAd(BuildContext context) {
-    return isAdShow
-        ? Container(
-            child: BannerAd(
-              // controller: bannerController,
-              size: BannerSize.ADAPTIVE,
-              options: BannerAdOptions(
-                reloadWhenSizeChanges: false,
-                reloadWhenUnitIdChanges: false,
-              ),
-            ),
-          )
-        : Container();
-  }
+  // static Widget admobBannerAd(BuildContext context) {
+  //   return isAdShow
+  //       ? Container(
+  //           child: BannerAd(
+  //             // controller: bannerController,
+  //             size: BannerSize.ADAPTIVE,
+  //             options: BannerAdOptions(
+  //               reloadWhenSizeChanges: false,
+  //               reloadWhenUnitIdChanges: false,
+  //             ),
+  //           ),
+  //         )
+  //       : Container();
+  // }
 
   static void launchSocialUrl(String url) async {
     if (await canLaunch(url)) {

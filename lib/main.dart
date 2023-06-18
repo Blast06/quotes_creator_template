@@ -5,31 +5,25 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:native_admob_flutter/native_admob_flutter.dart';
 import 'package:thoughts_creator/ui/SplashScreenUI.dart';
+import 'package:thoughts_creator/utils/Connectivity.dart';
 import 'controller/AdmobController.dart';
 import 'utils/AppString.dart';
 import 'utils/Myadmob.dart';
 import 'utils/Translations.dart';
 
 void main() async {
+
+  //TODO: FALTA ARREGLAR EL ERROR  Unable to instantiate activity ComponentInfo{creador.defrases.paravideos/io.flutter.app.FlutterApplication}: java.lang.ClassCastException: io.flutter.app.FlutterApplication cannot be cast to android.app.Activity
   // FirebaseAdMob.instance.initialize(appId: getAppId());
 
   // TODO: ENABLE CRASHLYTICS
   // to enable crashlytics
   // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
-  await MobileAds.initialize(
-    bannerAdUnitId: MyAdmob.getBannerAdId(),
-    interstitialAdUnitId: MyAdmob.getInterstitialAdId(),
-    appOpenAdUnitId: MyAdmob.getOpenAdId(),
-  );
+// Get.lazyPut(() => AdmobController());
 
   // for apple to request/allow ads tracking
-  await MobileAds.requestTrackingAuthorization();
-
-  MobileAds.setTestDeviceIds(['34FEAA5868007783EAE019607349D798']);
-  Get.put(AdmobController());
 
   runApp(MyApp());
 }

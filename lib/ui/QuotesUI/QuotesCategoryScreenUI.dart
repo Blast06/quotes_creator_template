@@ -297,7 +297,7 @@ class _QuotesCategoryScreenUIState extends State<QuotesCategoryScreenUI> {
                   flex: 1,
                   child: englishData(quotesEditorController)),
 
-              AppCommonFunc.admobBannerAd(context),
+              // AppCommonFunc.admobBannerAd(context),
 
             ],
           ) ,

@@ -1,4 +1,4 @@
-package com.rain.thoughtoftheday
+package creador.defrases.paravideos
 
 import io.flutter.embedding.android.FlutterActivity
 

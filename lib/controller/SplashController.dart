@@ -1,4 +1,4 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
+// import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +6,7 @@ import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:thoughts_creator/utils/Connectivity.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../Helper/PreferenceHelper.dart';
 import '../ui/IntroScreenUI.dart';
@@ -17,6 +18,8 @@ import 'CommonEditorController.dart';
 
 class SplashController extends GetxController {
   final admob = Get.find<AdmobController>();
+  final connectivityCtrl = Get.find<ConnectivityController>();
+
   Logger log = Logger();
   PreferenceHelper preferenceHelper;
   SharedPreferences prefs;
@@ -31,11 +34,11 @@ class SplashController extends GetxController {
   @override
   void onReady() async {
     log.i("onReady of splash controller");
-    await admob.loadOpenad();
+    
     super.onReady();
     // await getIgVideo(igUrl);
     await Future.delayed(Duration(seconds: 3), () {
-      admob.showAppOpen();
+       admob.appOpenAd.show();
       //HERE GOES THE LOGIC OF SHOWING PAGE
       checkInternetConnection();
       // Get.off(() => StartPage(), transition: Transition.zoom);
@@ -48,8 +51,9 @@ class SplashController extends GetxController {
   }
 
   checkInternetConnection() async {
-    var notConnection = await (Connectivity().checkConnectivity());
-    if (notConnection == ConnectivityResult.none) {
+    var notConnection = await connectivityCtrl.checkInternetConnection();
+    // var notConnection = await (Connectivity().checkConnectivity());
+    if (!notConnection) {
       _showDialog();
     } else {
       getSharedPreferenceObject();

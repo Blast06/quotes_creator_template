@@ -127,7 +127,7 @@ class _SavedCollectionScreenUIState extends State<SavedCollectionScreenUI> {
                         ),
                 ),
               ),
-              AppCommonFunc.admobBannerAd(context),
+              // AppCommonFunc.admobBannerAd(context),
             ],
           ),
         );

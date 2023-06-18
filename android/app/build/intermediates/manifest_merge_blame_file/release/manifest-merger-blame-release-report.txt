@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.rain.thoughtoftheday"
+3    package="creador.defrases.paravideos"
 4    android:versionCode="2"
 5    android:versionName="1.0.0" >
 6
@@ -156,7 +156,7 @@
 99-->G:\desktop\ASO\App de creador de frases\thoughtcreatorapp\android\app\src\main\AndroidManifest.xml:40:9-42:20
 100            android:name="androidx.core.content.FileProvider"
 100-->G:\desktop\ASO\App de creador de frases\thoughtcreatorapp\android\app\src\main\AndroidManifest.xml:40:19-68
-101            android:authorities="com.rain.thoughtoftheday.com.shekarmudaliyar.social_share"
+101            android:authorities="creador.defrases.paravideos"
 101-->G:\desktop\ASO\App de creador de frases\thoughtcreatorapp\android\app\src\main\AndroidManifest.xml:40:69-148
 102            android:exported="false"
 102-->G:\desktop\ASO\App de creador de frases\thoughtcreatorapp\android\app\src\main\AndroidManifest.xml:40:149-173
@@ -173,7 +173,7 @@
 108-->[:image_picker] C:\flutter\.pub-cache\hosted\pub.flutter-io.cn\image_picker-0.8.4+11\android\build\intermediates\library_manifest\release\AndroidManifest.xml:8:9-16:20
 109            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
 109-->[:image_picker] C:\flutter\.pub-cache\hosted\pub.flutter-io.cn\image_picker-0.8.4+11\android\build\intermediates\library_manifest\release\AndroidManifest.xml:9:13-82
-110            android:authorities="com.rain.thoughtoftheday.flutter.image_provider"
+110            android:authorities="creador.defrases.paravideos.flutter.image_provider"
 110-->[:image_picker] C:\flutter\.pub-cache\hosted\pub.flutter-io.cn\image_picker-0.8.4+11\android\build\intermediates\library_manifest\release\AndroidManifest.xml:10:13-74
 111            android:exported="false"
 111-->[:image_picker] C:\flutter\.pub-cache\hosted\pub.flutter-io.cn\image_picker-0.8.4+11\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:13-37
@@ -200,7 +200,7 @@
 123-->[:share] C:\flutter\.pub-cache\hosted\pub.flutter-io.cn\share-0.6.5+4\android\build\intermediates\library_manifest\release\AndroidManifest.xml:8:9-16:20
 124            android:name="io.flutter.plugins.share.ShareFileProvider"
 124-->[:share] C:\flutter\.pub-cache\hosted\pub.flutter-io.cn\share-0.6.5+4\android\build\intermediates\library_manifest\release\AndroidManifest.xml:9:13-70
-125            android:authorities="com.rain.thoughtoftheday.flutter.share_provider"
+125            android:authorities="creador.defrases.paravideos.flutter.share_provider"
 125-->[:share] C:\flutter\.pub-cache\hosted\pub.flutter-io.cn\share-0.6.5+4\android\build\intermediates\library_manifest\release\AndroidManifest.xml:10:13-74
 126            android:exported="false"
 126-->[:share] C:\flutter\.pub-cache\hosted\pub.flutter-io.cn\share-0.6.5+4\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:13-37
@@ -241,7 +241,7 @@
 145-->[com.google.android.gms:play-services-ads-lite:20.2.0] C:\Users\JulioD07-D\.gradle\caches\transforms-2\files-2.1\b3cf353615e27b4ced7497943b065f35\jetified-play-services-ads-lite-20.2.0\AndroidManifest.xml:54:9-58:39
 146            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
 146-->[com.google.android.gms:play-services-ads-lite:20.2.0] C:\Users\JulioD07-D\.gradle\caches\transforms-2\files-2.1\b3cf353615e27b4ced7497943b065f35\jetified-play-services-ads-lite-20.2.0\AndroidManifest.xml:55:13-76
-147            android:authorities="com.rain.thoughtoftheday.mobileadsinitprovider"
+147            android:authorities="creador.defrases.paravideos.mobileadsinitprovider"
 147-->[com.google.android.gms:play-services-ads-lite:20.2.0] C:\Users\JulioD07-D\.gradle\caches\transforms-2\files-2.1\b3cf353615e27b4ced7497943b065f35\jetified-play-services-ads-lite-20.2.0\AndroidManifest.xml:56:13-73
 148            android:exported="false"
 148-->[com.google.android.gms:play-services-ads-lite:20.2.0] C:\Users\JulioD07-D\.gradle\caches\transforms-2\files-2.1\b3cf353615e27b4ced7497943b065f35\jetified-play-services-ads-lite-20.2.0\AndroidManifest.xml:57:13-37
@@ -268,7 +268,7 @@
 160-->[androidx.work:work-runtime:2.1.0] C:\Users\JulioD07-D\.gradle\caches\transforms-2\files-2.1\91fec8687f83d9ad1e26dbcb878a5c14\work-runtime-2.1.0\AndroidManifest.xml:30:9-36:35
 161            android:name="androidx.work.impl.WorkManagerInitializer"
 161-->[androidx.work:work-runtime:2.1.0] C:\Users\JulioD07-D\.gradle\caches\transforms-2\files-2.1\91fec8687f83d9ad1e26dbcb878a5c14\work-runtime-2.1.0\AndroidManifest.xml:31:13-69
-162            android:authorities="com.rain.thoughtoftheday.workmanager-init"
+162            android:authorities="creador.defrases.paravideos.workmanager-init"
 162-->[androidx.work:work-runtime:2.1.0] C:\Users\JulioD07-D\.gradle\caches\transforms-2\files-2.1\91fec8687f83d9ad1e26dbcb878a5c14\work-runtime-2.1.0\AndroidManifest.xml:32:13-68
 163            android:directBootAware="false"
 163-->[androidx.work:work-runtime:2.1.0] C:\Users\JulioD07-D\.gradle\caches\transforms-2\files-2.1\91fec8687f83d9ad1e26dbcb878a5c14\work-runtime-2.1.0\AndroidManifest.xml:33:13-44

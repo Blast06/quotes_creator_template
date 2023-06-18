@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "SHRUNK_PROCESSED_RES",
+    "kind": "Directory"
+  },
+  "applicationId": "creador.defrases.paravideos",
+  "variantName": "processDebugResources",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "versionCode": 2,
+      "versionName": "1.0.0",
+      "outputFile": "resources-debug-stripped.ap_"
+    }
+  ]
+}

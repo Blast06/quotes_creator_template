@@ -477,7 +477,7 @@ class _SelectRatioScreenUIState extends State<SelectRatioScreenUI> {
                   ),
                 ),
                 Container(
-                  child: AppCommonFunc.admobBannerAd(context),
+                  // child: AppCommonFunc.admobBannerAd(context),
                 ),
               ],
             );

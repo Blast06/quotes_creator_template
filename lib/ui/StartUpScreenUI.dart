@@ -1,6 +1,5 @@
 import 'dart:async';
 // import 'package:admob_flutter/admob_flutter.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,9 +15,8 @@ import 'package:thoughts_creator/ui/MainScreen.dart';
 import 'package:thoughts_creator/utils/AppColors.dart';
 import 'package:thoughts_creator/utils/AppCommonFunc.dart';
 import 'package:thoughts_creator/utils/AppString.dart';
+import 'package:thoughts_creator/utils/Connectivity.dart';
 import 'package:thoughts_creator/utils/screen_util.dart';
-
-import '../main.dart';
 
 class StartUpScreenUI extends StatefulWidget {
   @override
@@ -29,7 +27,8 @@ class _StartUpScreenUIState extends State<StartUpScreenUI> {
   final BackgroundImgController bgImgController =
       Get.put(BackgroundImgController());
 
-  final admobCtrl = Get.find<AdmobController>();
+  // final admobCtrl = Get.find<AdmobController>();
+  final connectivityCtrl = Get.find<ConnectivityController>();
   PreferenceHelper preferenceHelper;
   SharedPreferences prefs;
   @override
@@ -50,8 +49,9 @@ class _StartUpScreenUIState extends State<StartUpScreenUI> {
   }
 
   checkInternetConnection() async {
-    var notConnection = await (Connectivity().checkConnectivity());
-    if (notConnection == ConnectivityResult.none) {
+    var notConnection = await connectivityCtrl.checkInternetConnection();
+    // var notConnection = await (Connectivity().checkConnectivity());
+    if (!notConnection) {
       _showDialog();
     } else {
       getSharedPreferenceObject();

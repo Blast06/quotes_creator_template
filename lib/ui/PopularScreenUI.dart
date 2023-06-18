@@ -1,4 +1,4 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
+// import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +16,7 @@ import 'package:thoughts_creator/utils/AppCommonFunc.dart';
 import 'package:thoughts_creator/utils/AppString.dart';
 import 'package:thoughts_creator/ui/SliderPreviewImageUI.dart';
 import 'package:thoughts_creator/Model/PopularImageResponse.dart';
+import 'package:thoughts_creator/utils/Connectivity.dart';
 
 class PopularScreenUI extends StatefulWidget {
   @override
@@ -30,6 +31,8 @@ class _PopularScreenUIState extends State<PopularScreenUI> {
       Get.put(PopularImageController());
   SavedCollectionController savedCollectionController =
       Get.put(SavedCollectionController());
+
+  final connectivityCtrl = Get.find<ConnectivityController>();
 
   @override
   void initState() {
@@ -86,7 +89,7 @@ class _PopularScreenUIState extends State<PopularScreenUI> {
                                   ),
                           ),
                   )),
-              AppCommonFunc.admobBannerAd(context),
+              // AppCommonFunc.admobBannerAd(context),
             ],
           ),
         );
@@ -95,8 +98,9 @@ class _PopularScreenUIState extends State<PopularScreenUI> {
   }
 
   checkInternetConnection() async {
-    var notConnection = await (Connectivity().checkConnectivity());
-    if (notConnection == ConnectivityResult.none) {
+    var notConnection = await connectivityCtrl.checkInternetConnection();
+    // var notConnection = await (Connectivity().checkConnectivity());
+    if (!notConnection) {
       _showDialog();
     } else {
       popularImageController.apiCallPopularTamplate();

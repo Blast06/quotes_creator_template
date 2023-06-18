@@ -56,7 +56,7 @@ class _QuotesDetailScreenUIState extends State<QuotesDetailScreenUI> {
                         return widgetQuotesItems(index,widget.quotesData);
                       }),
                 )),
-            AppCommonFunc.admobBannerAd(context),
+            // AppCommonFunc.admobBannerAd(context),
           ],
         ),
       ),

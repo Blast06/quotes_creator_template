@@ -121,7 +121,7 @@ class _QuotesAddScreenUIState extends State<QuotesAddScreenUI> {
                 ),
               ),
             ),
-            AppCommonFunc.admobBannerAd(context),
+            // AppCommonFunc.admobBannerAd(context),
           ],
         ),
       ),

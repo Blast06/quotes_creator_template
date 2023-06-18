@@ -273,7 +273,7 @@ class _SliderPreviewImageUIState extends State<SliderPreviewImageUI> {
                   ),
                 ),
               ),
-              AppCommonFunc.admobBannerAd(context),
+              // AppCommonFunc.admobBannerAd(context),
             ],
           )),
     );
@@ -364,7 +364,7 @@ class _DetailScreenState extends State<DetailScreen> {
               },
             ),
           ),
-          AppCommonFunc.admobBannerAd(context),
+          // AppCommonFunc.admobBannerAd(context),
         ],
       ),
     );

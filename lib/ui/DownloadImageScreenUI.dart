@@ -176,7 +176,7 @@ class _DownloadImageScreenUIState extends State<DownloadImageScreenUI> {
               ),
             ),
           ),
-          AppCommonFunc.admobBannerAd(context),
+          // AppCommonFunc.admobBannerAd(context),
         ],
       ),
     );
